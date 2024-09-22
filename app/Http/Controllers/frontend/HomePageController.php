@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+use App\Mail\Mailer;
 use App\Models\addproducts;
 use App\Models\customerquery;
 use App\Models\orderDetails;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class HomePageController extends Controller
 {
@@ -79,8 +81,6 @@ class HomePageController extends Controller
             'email' => 'required',
             'contactNo' => 'required',
             'websiteRating' => 'required',
-            // 'productName' => 'required',
-            // 'weight' => 'required',
             'customerComment' => 'required',
         ]);
         $customerquery = new customerquery();
@@ -91,6 +91,8 @@ class HomePageController extends Controller
         $customerquery->customerComment = $request->customerComment;
 
         $customerquery->save();
+        $test =  Mail::to($request->email)->send(new Mailer($request->all()));
+        dd($customerquery);
         // return $customerquery;
         return redirect('/');
     }
