@@ -1,0 +1,22 @@
+{
+  "menu": [
+    {
+      "url": "admin/product/index",
+      "icon": "menu-icon tf-icons bx bx-crown",
+      "name": "Product List",
+      "slug": "backend.products_list.index"
+    },
+    {
+      "url": "admin/order/product/index",
+      "icon": "menu-icon tf-icons bx bx-crown",
+      "name": "Order Products",
+      "slug": "backend.products_list.index"
+    },
+    {
+      "url": "admin/customer/query/index",
+      "icon": "menu-icon tf-icons bx bx-crown",
+      "name": "Customer Querys",
+      "slug": "backend.customerQueryView.index"
+    }
+  ]
+}
