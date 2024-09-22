@@ -66,7 +66,7 @@ route::post('customerquery', [HomePageController::class, 'customerquery']);
 
 
 // Main Page Route
-Route::get('/admin/dashboard', [Analytics::class, 'index'])->name(' ')->middleware('auth');
+Route::get('/admin/dashboard', [Analytics::class, 'index'])->name('admin.dashboard')->middleware('auth');
 
 // layout
 Route::get('/layouts/without-menu', [WithoutMenu::class, 'index'])->name('layouts-without-menu');
