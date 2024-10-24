@@ -50,7 +50,7 @@ body{
     color: darkgray;
 }
 .navLink ul li a::before{
-   
+
     content: "";
     width: 0px;
     height: 10px;
@@ -91,7 +91,7 @@ ul li a:hover::before {
 /* products */
 .boxsize{
     width: 80vw;
-    
+
 }
 .navbar-brand{
     text-shadow: 2px 2px 2px gray;
@@ -107,7 +107,7 @@ ul li a:hover::before {
 }
 
 /* .card:hover{
-     transform: scale(1.05); 
+     transform: scale(1.05);
 } */
 .card img{
     height: 20vh;
@@ -136,7 +136,7 @@ i{
 }
 .navFooter ul,.productFooter ul,.addressFooter ul,.followFooter ul{
     list-style-type: none;
-    
+
 }
 .navFooter ul a,.productFooter ul a,.addressFooter ul a{
     text-decoration: none;
