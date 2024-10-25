@@ -100,15 +100,15 @@ ul li a:hover::before {
 }
 
 .card{
-    width: 200px;
-    height:330px;
+    /* width: 220px; */
+    /* height:330px; */
     overflow-wrap:normal;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
 }
 
-/* .card:hover{
+.card:hover{
      transform: scale(1.05);
-} */
+}
 .card img{
     height: 20vh;
     border-radius: 5px;

@@ -5,10 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oyster Products</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
+    </script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="{{asset('assets/custom-css/oysterMushroom/index.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/custom-css/oysterMushroom/index.css') }}">
 
 </head>
 
@@ -23,7 +26,7 @@
         </div>
         <div class="navLink">
             <ul>
-                <li><a href="{{url('/')}}">Home</a></li>
+                <li><a href="{{ url('/') }}">Home</a></li>
                 {{-- <li><a href="#section2">About Us</a></li> --}}
                 <!-- <li><a href="#section3">Products</a></li> -->
                 {{-- <li><a href="#section4">Benefits</a></li> --}}
@@ -39,9 +42,9 @@
         <div>
             <h1 class="container-fluid header1">Oyster Mushroom Products</h1>
         </div>
-        <div class="boxsize">
+        {{-- <div class="boxsize">
             <div class="row row-cols2 row-cols-md-5 g-4">
-                @foreach($datas as $data)
+                @foreach ($datas as $data)
                 <div class="col">
                     <div class="card">
                         <img src="{{asset($data->image_url1)}}" class="card-img-top" alt="...">
@@ -49,13 +52,13 @@
                             <div class="card-title h6" style="font-weight: 600;">{{$data->productName}}</div>
                             <div class="card-text m-1">
                                 <P class="lh-1" style="margin: 5px;"><?php $str1 = explode(' ', "$data->description");
-                                                                        print_r($str1[0] . ' ' . $str1[1] . ' ' . $str1[2] . ' ' . $str1[3] . ' ' . $str1[4]);   ?></P>
+                                print_r($str1[0] . ' ' . $str1[1] . ' ' . $str1[2] . ' ' . $str1[3] . ' ' . $str1[4]); ?></P>
                                 <p class="text-danger">Rs. <del>{{$data->price}}</del> <span class="text-success h6 ">{{$data->discount}}% off</span></p>
                                 <div class="h5" style="margin: 5px;">Rs. <?php $str1 = $data->discount;
-                                                                            $str2 = $data->price;
-                                                                            $str3 = $str2 * ($str1 / 100);
-                                                                            $disPrice = $str2 - $str3;
-                                                                            print_r($disPrice);  ?></div>
+                                $str2 = $data->price;
+                                $str3 = $str2 * ($str1 / 100);
+                                $disPrice = $str2 - $str3;
+                                print_r($disPrice); ?></div>
                                 <div class="d-grid gap-1 col-12 mx-auto">
                                     <button class="btn btn-primary"><a href="{{url('productDetails')}}/{{$data->id}}">View</a></button>
                                 </div>
@@ -65,14 +68,88 @@
                 </div>
                 @endforeach
             </div>
+        </div> --}}
+
+
+
+        <style>
+            .boxsize {
+                padding: 2rem 0rem;
+            }
+
+            .card-img {
+                border-bottom-left-radius: 0px;
+                border-bottom-right-radius: 0px;
+            }
+
+            .card-title {
+                margin-bottom: 0.3rem;
+            }
+
+            /* .cat {
+  display: inline-block;
+  margin-bottom: 1rem;
+} */
+
+            .fa-users {
+                margin-left: 1rem;
+            }
+
+            .card-footer {
+                font-size: 0.8rem;
+            }
+        </style>
+        <div class="boxsize">
+            <div class="row gy-4">
+                @foreach ($datas as $data)
+                    <div class="col-12 col-sm-8 col-md-6 col-lg-2">
+                        <div class="card">
+                            <img class="card-img" src="{{ asset($data->image_url1) }}" alt="Bologna">
+                            {{-- <div class="card-img-overlay">
+                                <a href="#" class="btn btn-light btn-sm" style="font-size: xx-small;">{{$data->Category}}</a>
+                            </div> --}}
+                            <div class="card-body">
+                                <h6 class="card-title" style="font-size: small;font-weight: 600;">
+                                    {{ $data->productName }}</h4>
+                                    <small class="text-muted cat fw-bold">
+                                        <span class="text-dark">Rs.<?php $str1 = $data->discount;
+                                        $str2 = $data->price;
+                                        $str3 = $str2 * ($str1 / 100);
+                                        $disPrice = $str2 - $str3;
+                                        print_r($disPrice); ?></span>
+                                        <span class="text-danger ps-2">Rs.<del>{{ $data->price }}</del></span>
+                                        <span class="text-success ps-2">{{ $data->discount }}% off</span>
+                                    </small>
+                                    <p class="card-text" style="font-size:small;"><?php $str1 = explode(' ', "$data->description");
+                                    print_r($str1[0] . ' ' . $str1[1] . ' ' . $str1[2] . ' ' . $str1[3] . ' ' . $str1[4]); ?></p>
+                                    <a
+                                    href="{{ url('productDetails') }}/{{ $data->id }}"><button class="btn btn-sm btn-primary">View</button></a>
+
+                            </div>
+                            {{-- <div class="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0">
+            <div class="views">Oct 20, 12:45PM
+            </div>
+            <div class="stats">
+                 <i class="far fa-eye"></i> 1347
+              <i class="far fa-comment"></i> 12
+            </div>
+
+          </div> --}}
+                        </div>
+                    </div>
+                @endforeach
+            </div>
         </div>
+
+
+
 
         <!-- footer -->
         <div class="section9 container-fluid" id="section8">
             <div class="navFooter col-3">
                 <h3 class="text-secondary">&emsp;Quick Links</h3>
                 <ul>
-                    <li><a href="{{url('/')}}">Home</a></li>
+                    <li><a href="{{ url('/') }}">Home</a></li>
                     <li><a href="#">About Us</a></li>
                     <li><a href="#">Products</a></li>
                     <li><a href="#">Benefits</a></li>
